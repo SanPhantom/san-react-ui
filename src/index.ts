@@ -1,5 +1,5 @@
-export * from './components/Button';
-let version: string = "0.0.1";
+export * from './components';
+let version = "0.0.1";
 
 const getVersion = () => {
   return `this version is ${version}`;

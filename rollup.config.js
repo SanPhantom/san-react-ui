@@ -5,7 +5,6 @@ import dts from 'rollup-plugin-dts';
 import { terser } from "rollup-plugin-terser";
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import babel from '@rollup/plugin-babel';
-import sourcemaps from 'rollup-plugin-sourcemaps';
 
 const packageJson = require("./package.json");
 
@@ -15,24 +14,19 @@ export default [
     output: [
       {
         file: packageJson.main,
-        format: "cjs",
-        sourcemap: true,
-      },
-      {
-        file: packageJson.module,
         format: "esm",
         sourcemap: true,
       },
     ],
     plugins: [
-      babel(),
-      peerDepsExternal(),
       resolve(),
       commonjs(),
       typescript({ tsconfig: './tsconfig.json' }),
+      babel(),
+      peerDepsExternal(),
       terser()
     ],
-    external: ["react", "react-dom", "styled-components"]
+    external: ["react", "react-dom", "styled-components", "typescript", "tslib"]
   },
   {
     input: "dist/esm/index.d.ts",

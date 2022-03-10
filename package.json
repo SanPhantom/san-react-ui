@@ -2,13 +2,19 @@
   "name": "san-react-ui",
   "version": "1.0.0",
   "description": "san ui组件库",
-  "main": "dist/cjs/index.js",
+  "main": "dist/esm/index.js",
   "module": "dist/esm/index.js",
   "author": "SanPhantom",
   "license": "MIT",
   "private": true,
+  "types": "dist/index.d.ts",
   "scripts": {
-    "build": "rollup -c"
+    "build": "rollup -c",
+    "dev":"rollup -c -w"
+  },
+  "resolutions": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.17.5",
